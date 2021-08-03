@@ -1,10 +1,15 @@
-<div>
-  <img [src]="product.image" alt="">
+<div class="product_container-detalle" *ngIf="product">
+  <div class="product_img-detalle">
+    <img class='product_img' [src]="product.image" alt="">
+  </div>
+  <div class="product_detalle-items">
+    <ul class="product_ul-items">
+      <li>Nombre: {{ product.title }}</li>
+      <li>Precio: {{ product.price | currency }}</li>
+    </ul>
+    <p>Description: {{ product.description }}</p>
+    <br />
+  </div>
+
 </div>
-<div>
-  <ul>
-    <li>Nombre: {{ product.title }}</li>
-    <li>Precio: {{ product.price | currency }}</li>
-  </ul>
-  <p>{{ product.description }}</p>
-</div>
+<button mat-raised-button color='primary' class="button_mat"(click)="createProduct()">Comprar</button>
